@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Our Love Story</h1>
+
+        <div class="gallery">
+            <figure class="slide">
+                <img src="/18833e4245a709f5b518c597861b6974.jpg" alt="anime_couple_portrait">
+                <figcaption>Every moment with you is precious.</figcaption>
+            </figure>
+            <figure class="slide">
+                <img src="/92bd2866e877a9025d26c32806ccdaeb.jpg" alt="anime_couple_park">
+                <figcaption>Finding peace and joy by your side.</figcaption>
+            </figure>
+            <figure class="slide">
+                <img src="/0e2f36fc6cff64a9badae815493ac871.jpg" alt="anime_couple_selfie">
+                <figcaption>Capturing memories, one selfie at a time.</figcaption>
+            </figure>
+             <!-- Add more figures for more images -->
+        </div>
+
+        <!-- Audio element for background music -->
+        <audio id="background-music" loop>
+             <source src="/শিফা আমি তোমায় ভালোবাসি.mp3" type="audio/mpeg">
+             Your browser does not support the audio element. Please update your browser.
+        </audio>
+
+        <!-- Button to trigger audio playback if autoplay fails -->
+        <button id="playButton" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; padding: 10px 20px; font-size: 1em; cursor: pointer; background-color: #c88ea6; color: white; border: none; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: none;">
+            Tap to Play Music
+        </button>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

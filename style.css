@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #fde3e4 0%, #e6d4e7 100%); /* Soft pastel gradient */
+    color: #5a4f5e; /* Darker pastel for text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    padding-bottom: 80px; /* Add padding to prevent overlap with play button */
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 900px;
+    width: 90%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Slightly increased opacity */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5em;
+    color: #c88ea6; /* Muted pink */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.gallery {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Limit gallery width */
+    height: 450px; /* Adjust height as needed */
+    margin: 0 auto;
+    overflow: hidden; /* Hide parts of images outside the container */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #eee; /* Light background while images load/fade */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    animation: crossfade 15s infinite ease-in-out; /* Smoother timing, 5s per image * 3 images */
+    /* Removed transition: opacity 1s ease-in-out; as animation handles it */
+}
+
+.slide img {
+    width: 100%;
+    height: calc(100% - 45px); /* Adjust to leave space for caption */
+    object-fit: cover; /* Cover the area, might crop */
+    display: block;
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* Subtle separator */
+}
+
+.slide figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45px; /* Fixed height for caption */
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker background */
+    color: #fff;
+    padding: 12px; /* Adjusted padding */
+    font-size: 0.9em;
+    box-sizing: border-box;
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.3;
+}
+
+/* Stagger animation delays */
+.slide:nth-child(1) {
+    animation-delay: 0s;
+}
+.slide:nth-child(2) {
+    animation-delay: 5s;
+}
+.slide:nth-child(3) {
+    animation-delay: 10s;
+}
+/* Add more nth-child rules if more images are added */
+
+
+@keyframes crossfade {
+  0%, 20%, 100% { /* Start invisible, stay visible for 20% of its slot */
+    opacity: 0;
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  5%, 15% { /* Fade in to full opacity and normal scale */
+    opacity: 1;
+    transform: scale(1);
+  }
+  /* Implicitly stays at opacity 1 until 20% */
+  /* Implicitly fades out from 20% to 33.33% (start of next slide's fade-in) */
+}
+
+
+/* Play Button Styling - already inline, but could be moved here */
+#playButton:hover {
+    background-color: #b37994; /* Slightly darker on hover */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8em;
+    }
+    .gallery {
+        height: 350px; /* Adjust height for smaller screens */
+    }
+    .slide figcaption {
+        font-size: 0.8em;
+        padding: 10px;
+         height: 40px;
+    }
+     .slide img {
+         height: calc(100% - 40px);
+     }
+     #playButton {
+         font-size: 0.9em;
+         padding: 8px 16px;
+     }
+}
+
+@media (max-width: 480px) {
+     h1 {
+        font-size: 2.2em;
+    }
+    .gallery {
+        height: 280px; /* Further adjust height */
+        max-width: 95%;
+    }
+     .slide figcaption {
+        font-size: 0.7em;
+        padding: 8px;
+         height: 35px;
+    }
+     .slide img {
+        height: calc(100% - 35px);
+     }
+     #playButton {
+         font-size: 0.8em;
+         padding: 6px 12px;
+         bottom: 15px; /* Adjust position */
+     }
+     body {
+        padding-bottom: 70px; /* Ensure space for button on small screens */
+     }
+}
